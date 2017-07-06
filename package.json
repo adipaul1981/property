@@ -12,6 +12,7 @@
     "react-tap-event-plugin": "2.0.1"
   },
   "devDependencies": {
+    "flexboxgrid": "6.3.1",
     "react-scripts": "0.9.5",
     "babel-cli": "6.23.0",
     "babel-core": "6.23.1",
