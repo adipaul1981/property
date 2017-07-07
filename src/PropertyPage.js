@@ -1,6 +1,7 @@
 import React from 'react';
 import TextField from 'material-ui/TextField';
 import Paper from 'material-ui/Paper';
+import KeyValue from './KeyValue';
 
 
 
@@ -68,8 +69,23 @@ componentDidMount(){
                                 </div>
                         </div>
 
-                        <div className="col-xs-12 col-sm-6 col-md-4 col-lg-4 center-xs ">
-                            <img alt="Bootstrap Image Preview" src="http://lorempixel.com/140/140/" />
+                        <div className="col-xs-12 col-sm-6 col-md-4 col-lg-4 end-xs ">
+                            <div>
+                                <span>
+                                    MLS Number:
+                                </span>
+                                <span>
+                                    {this.state.data.MLSNumber}
+                                </span>
+                            </div>
+                            <div>
+                                <span>
+                                  Price:
+                                </span>
+                                <span>
+                                        ${this.state.data.Price}
+                                </span>
+                            </div>
                         </div>
 
                     </div>
@@ -96,6 +112,7 @@ componentDidMount(){
                                      defaultValue={this.state.data.MLSNumber}
 
                                    />
+                                   <KeyValue _key="MLS Number:" _value={this.state.data.MLSNumber}/>
                                </div>
                             </Paper>
                         </div>
