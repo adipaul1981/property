@@ -1,8 +1,9 @@
 import React from 'react';
 import TextField from 'material-ui/TextField';
 import Paper from 'material-ui/Paper';
-import KeyValue from './KeyValue';
-
+import IndValue from './IndValue';
+import FeaturesContainer from './FeaturesContainer';
+import ExpensesContainer from './ExpensesContainer';
 
 
 
@@ -71,51 +72,23 @@ componentDidMount(){
 
                         <div className="col-xs-12 col-sm-6 col-md-4 col-lg-4 end-xs ">
                             <div>
-                                <span>
-                                    MLS Number:
-                                </span>
-                                <span>
-                                    {this.state.data.MLSNumber}
-                                </span>
+                                <IndValue ind="MLS Number" value={this.state.data.MLSNumber}/>
                             </div>
                             <div>
-                                <span>
-                                  Price:
-                                </span>
-                                <span>
-                                        ${this.state.data.Price}
-                                </span>
+                                <IndValue ind="Price" value={this.state.data.Price}/>
                             </div>
                         </div>
 
                     </div>
 
                     <div className="row">
-                        <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6  ">
-                            <Paper>
-                                <div>
-                                   <div> MLS: </div>
-                                   <TextField
-                                     id="text-field-default"
-                                     defaultValue={this.state.data.MLSNumber}
-                                   />
-                               </div>
-                            </Paper>
-                        </div>
+                    <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6  ">
+                        <FeaturesContainer property={this.state.data}/>
+                    </div>
 
-                        <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6 ">
-                            <Paper>
-                                <div>
-                                   <div> MLS: </div>
-                                   <TextField
-                                     id="text-field-default"
-                                     defaultValue={this.state.data.MLSNumber}
-
-                                   />
-                                   <KeyValue _key="MLS Number:" _value={this.state.data.MLSNumber}/>
-                               </div>
-                            </Paper>
-                        </div>
+                    <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6  ">
+                        <ExpensesContainer property={this.state.data}/>
+                    </div>
                     </div>
 
                 </div>
