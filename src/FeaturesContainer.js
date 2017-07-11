@@ -12,10 +12,10 @@ export default class FeatureContainer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      property: props.property
+      property: props.property,
+      addDialog: false
     };
   }
-
 
 
 
