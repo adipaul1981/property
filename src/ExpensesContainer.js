@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import Paper from 'material-ui/Paper';
 import IndValue from './IndValue';
 import RaisedButton from 'material-ui/RaisedButton';
-import DialogAddProperty from './DialogAddProperty';
+import DialogAddExpense from './DialogAddExpense';
 
 
 
@@ -39,31 +39,31 @@ export default class ExpensesContainer extends React.Component {
 
     handleSubmit = (json) => {
         {console.log("toto")};
-//        {console.log(json)};
+        {console.log(json)};
         this.setState({addDialog: false});
-//
-//        fetch('/NewProspectProperty', {
-//        method: 'POST',
-//        headers: {
-//        'Accept': 'application/json',
-//        'Content-Type': 'application/json',
-//        },
-//        body: JSON.stringify(json)
-//        })
-//        .then(function(response) {
-//
-//        {console.log("tets");}
-//        {console.log("tets");}
-//        if(response.status == 201){
-//        response.json()
-//        .then(function(data){
-//        console.log(data.MLSNumber);
-//        browserHistory.push({pathname: '/Property/'+ data.MLSNumber, state: {mlsnumber:  data.MLSNumber}});
-//        });
-//        }
-//        else
-//        throw new Error('Something went wrong on api server!' );
-//        })
+
+        fetch('/ /Property/Expenses/'  { //MLS NUMBER?!?!?!
+        method: 'POST',
+        headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(json)
+        })
+        .then(function(response) {
+
+        {console.log("tets");}
+        {console.log("tets");}
+        if(response.status == 201){
+        response.json()
+        .then(function(data){
+        console.log(data.MLSNumber);
+        browserHistory.push({pathname: '/Property/'+ data.MLSNumber, state: {mlsnumber:  data.MLSNumber}});
+        });
+        }
+        else
+        throw new Error('Something went wrong on api server!' );
+        })
     };
 
     toggleModal = () => {
@@ -78,7 +78,7 @@ export default class ExpensesContainer extends React.Component {
             return (
             <div>
                     <RaisedButton label="Default" onTouchTap={this.handleOpen}/>
-                    <DialogAddProperty open={this.state.addDialog} handleClose={this.handleClose} handleSubmit={this.handleSubmit}/>
+                    <DialogAddExpense open={this.state.addDialog} handleClose={this.handleClose} handleSubmit={this.handleSubmit}/>
                     </div>
             );
         }
@@ -94,6 +94,3 @@ export default class ExpensesContainer extends React.Component {
 ExpensesContainer.propTypes = {
   property: PropTypes.object,
 };
-//                <div
-//                    <DialogAddProperty open={this.state.addDialog} handleClose={this.handleClose} handleSubmit={this.handleSubmit}/>
-//                </div>

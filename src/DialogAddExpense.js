@@ -2,7 +2,6 @@ import React from 'react';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
-import {RadioButton, RadioButtonGroup} from 'material-ui/RadioButton';
 import TextField from 'material-ui/TextField';
 
 
@@ -17,67 +16,41 @@ const styles = {
  */
 export default class DialogAddExpense extends React.Component {
     state = {
-          property: {
-            MLSNumber: '',
-            Price: 0,
-            MunicipalEvaluation: 0,
-            NoOneAndHalf: 0,
-            NoTwoAndHalf: 0,
-            NoThreeAndHalf: 0,
-            NoFourAndHalf: 11,
-            NoFiveAndHalf: 0,
-            NoSixAndHalf: 0,
-              Address: {
-                  PropertyNumber: '',
-                  Street: '',
-                  City: 'Montreal',
-                  Province: 'Quebec',
-                  Country: 'Canada',
-              },
+          expenses: {
+            School_Tax: 0,
+            Municipal_Tax: 0,
+            SnowRemoval: 0,
+            Administration: 0,
+            Insurance: 0,
+            Heating: 0,
+            Electricity: 0,
+            Maintenance: 0,
+            Others: 0,
           },
           open: this.props.open,
     };
 
     saveProperty = (e) => {
         e.preventDefault();
-        this.props.handleSubmit(this.state.property)
+        this.props.handleSubmit(this.state.expenses)
     };
 
     updateFormStateProperty = (e) => {
         const field = e.target.name;
-        const property = this.state.property;
+        const expenses = this.state.expenses;
         switch(e.target.type){
                                 case 'number': {console.log(e.target.type)
-                                    property[field] = parseFloat(e.target.value);
+                                    expenses[field] = parseFloat(e.target.value);
                                 }
                                 break;
 
                                 case "text": {
-                                    property[field] = e.target.value;
+                                    expenses[field] = e.target.value;
                                 }
                                 break;
                             };
-        this.setState({property: property});
+        this.setState({expenses: expenses});
     };
-
-    updateFormStateAddress= (e) => {
-        const field = e.target.name;
-        const property = this.state.property;
-        switch(e.target.type){
-                                case 'number': {console.log(e.target.type)
-                                    property.Address[field] = parseFloat(e.target.value);
-                                }
-                                break;
-
-                                case "text": {
-                                    property.Address[field] = e.target.value;
-                                }
-                                break;
-                            };
-        this.setState({property: property});
-    };
-
-
 
   render() {
 
@@ -110,118 +83,84 @@ export default class DialogAddExpense extends React.Component {
           autoScrollBodyContent={true}
         >
         <TextField
-          name="MLSNumber"
-          hintText="mls"
-          floatingLabelText="MLS Number"
+          name="Municipal_Tax"
+          hintText="$"
+          floatingLabelText="Municipal Tax"
           floatingLabelFixed={true}
-          onChange={this.updateFormStateProperty}   //todo
+          type="number"
+          defaultValue={this.state.expenses.Municipal_Tax}
+          onChange={this.updateFormStateProperty}
         />
         <TextField
-            name="Price"
+            name="School_Tax"
             hintText="$"
-            floatingLabelText="Price"
+            floatingLabelText="School Tax"
             floatingLabelFixed={true}
             type="number"
+            defaultValue={this.state.expenses.School_Tax}
             onChange={this.updateFormStateProperty}
         /><br />
         <TextField
-            name="MunicipalEvaluation"
-            hintText="municipal"
-            floatingLabelText="Municipal Evaluation"
+            name="SnowRemoval"
+            hintText="$"
+            floatingLabelText="Snow Removal"
             floatingLabelFixed={true}
             type="number"
+            defaultValue={this.state.expenses.SnowRemoval}
             onChange={this.updateFormStateProperty}
         /><br />
         <TextField
-            name="NoOneAndHalf"
-            floatingLabelText="No. 1 1/2"
+            name="Administration"
+            hintText="$"
+            floatingLabelText="Administration"
             floatingLabelFixed={true}
             type="number"
-            defaultValue={this.state.property.NoOneAndHalf}
+            defaultValue={this.state.expenses.Administration}
             onChange={this.updateFormStateProperty}
         />
         <TextField
-            name="NoTwoAndHalf"
-            floatingLabelText="No. 2 1/2"
+            name="Insurance"
+            hintText="$"
+            floatingLabelText="Insurance"
             floatingLabelFixed={true}
             type="number"
-            defaultValue={this.state.property.NoTwoAndHalf}
+            defaultValue={this.state.expenses.Insurance}
             onChange={this.updateFormStateProperty}
         /><br />
         <TextField
-            name="NoThreeAndHalf"
-            floatingLabelText="No. 3 1/2"
+            name="Heating"
+            hintText="$"
+            floatingLabelText="Heating"
             floatingLabelFixed={true}
             type="number"
-            defaultValue={this.state.property.NoThreeAndHalf}
+            defaultValue={this.state.expenses.Heating}
             onChange={this.updateFormStateProperty}
         />
         <TextField
-            name="NoFourAndHalf"
-            floatingLabelText="No. 4 1/2"
+            name="Electricity"
+            floatingLabelText="Electricity"
             floatingLabelFixed={true}
             type="number"
-            defaultValue={this.state.property.NoFourAndHalf}
+            defaultValue={this.state.expenses.Electricity}
             onChange={this.updateFormStateProperty}
         /><br />
         <TextField
-            name="NoFiveAndHalf"
-            floatingLabelText="No. 5 1/2"
+            name="Maintenance"
+            hintText="$"
+            floatingLabelText="maintenance"
             floatingLabelFixed={true}
             type="number"
-            defaultValue={this.state.property.NoFiveAndHalf}
+            defaultValue={this.state.expenses.Maintenance}
             onChange={this.updateFormStateProperty}
         />
         <TextField
-            name="NoSixAndHalf"
-            floatingLabelText="No. 6 1/2"
+            name="Others"
+            hintText="$"
+            floatingLabelText="Others"
             floatingLabelFixed={true}
             type="number"
-            defaultValue={this.state.property.NoSixAndHalf}
+            defaultValue={this.state.expenses.Others}
             onChange={this.updateFormStateProperty}
-        /><br />
-       <TextField
-            name="PropertyNumber"
-            hintText="street no."
-            floatingLabelText="Number"
-            floatingLabelFixed={true}
-            type="number"
-            onChange={this.updateFormStateAddress}
-        />
-       <TextField
-            name="Street"
-            hintText="street"
-            floatingLabelText="Street"
-            floatingLabelFixed={true}
-            type="text"
-            onChange={this.updateFormStateAddress}
-        /><br />
-      <TextField
-            name="City"
-            hintText="city"
-            floatingLabelText="City"
-            floatingLabelFixed={true}
-            type="text"
-            defaultValue={this.state.property.Address.City}
-            onChange={this.updateFormStateAddress}
-        />
-      <TextField
-            name="Province"
-            hintText="province"
-            floatingLabelText="Province"
-            floatingLabelFixed={true}
-            type="text"
-            defaultValue={this.state.property.Address.Province}Country
-            onChange={this.updateFormStateAddress}
-        /><br />
-      <TextField
-            name="Country"
-            hintText="country"
-            floatingLabelText={this.state.property.Address.Province}
-            floatingLabelFixed={true}
-            type="text"
-            defaultValue={this.state.property.Address.Country}
-            onChange={this.updateFormStateAddress}
         /><br />
          <div style={{ textAlign: 'right', padding: 8, margin: '24px -24px -24px -24px' }}>
             {actions}
