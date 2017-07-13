@@ -42,24 +42,24 @@ export default class ExpensesContainer extends React.Component {
         {console.log(json)};
         this.setState({addDialog: false});
 
-        fetch('/ /Property/Expenses/'  { //MLS NUMBER?!?!?!
-        method: 'POST',
-        headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(json)
+        fetch('/Property/Expenses/',  {
+            method: 'POST',
+            headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(json)
         })
         .then(function(response) {
 
         {console.log("tets");}
         {console.log("tets");}
         if(response.status == 201){
-        response.json()
-        .then(function(data){
-        console.log(data.MLSNumber);
-        browserHistory.push({pathname: '/Property/'+ data.MLSNumber, state: {mlsnumber:  data.MLSNumber}});
-        });
+            response.json()
+            .then(function(data){
+                console.log(data);
+//                browserHistory.push({pathname: '/Property/'+ data.MLSNumber, state: {mlsnumber:  data.MLSNumber}});
+            });
         }
         else
         throw new Error('Something went wrong on api server!' );
@@ -78,7 +78,7 @@ export default class ExpensesContainer extends React.Component {
             return (
             <div>
                     <RaisedButton label="Default" onTouchTap={this.handleOpen}/>
-                    <DialogAddExpense open={this.state.addDialog} handleClose={this.handleClose} handleSubmit={this.handleSubmit}/>
+                    <DialogAddExpense open={this.state.addDialog} handleClose={this.handleClose} handleSubmit={this.handleSubmit} propertyId={this.props.property.ID}/>
                     </div>
             );
         }

@@ -17,6 +17,7 @@ const styles = {
 export default class DialogAddExpense extends React.Component {
     state = {
           expenses: {
+            Property_Expenses_ID: this.props.propertyId,
             School_Tax: 0,
             Municipal_Tax: 0,
             SnowRemoval: 0,
@@ -175,4 +176,5 @@ DialogAddExpense.propTypes = {
     handleClose: React.PropTypes.func.isRequired,
     handleSubmit: React.PropTypes.func.isRequired,
     open: React.PropTypes.bool,
+    propertyId:React.PropTypes.int,
 };
