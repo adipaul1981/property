@@ -1,18 +1,12 @@
 import React,  { PropTypes } from 'react';
 import Drawer from 'material-ui/Drawer';
 import {spacing, typography} from 'material-ui/styles';
-import {white, blue600,yellowA200} from 'material-ui/styles/colors';
-import MenuItem from 'material-ui/MenuItem';
-import {Link} from 'react-router';
+import {blue600,yellowA200} from 'material-ui/styles/colors';
 import Avatar from 'material-ui/Avatar';
 import ListDrawer from './ListDrawer';
 
 import {
-  blue300,
-  indigo900,
-  orange200,
   deepOrange300,
-  pink400,
   purple500,
 } from 'material-ui/styles/colors';
 
@@ -22,7 +16,7 @@ const LeftDrawer2 = (props) => {
   let { navDrawerOpen } = props;
 
 
-  const style = {margin: 5};
+//  const style = {margin: 5};
 
   const styles = {
     logo: {
@@ -42,7 +36,7 @@ const LeftDrawer2 = (props) => {
     avatar: {
       div: {
         padding: '15px 0 20px 15px',
-        backgroundImage:  'url(' + require('./images/material_bg.png') + ')',
+        backgroundImage:  'url(' + require('../images/material_bg.png') + ')',
         height: 45
       },
       icon: {
@@ -90,14 +84,6 @@ const LeftDrawer2 = (props) => {
         </div>
     </Drawer>
   );
-};
-
-function handleChange(event, index, value) {
-    this.setState({value})
-    console.log("toto")
-};
-function changeValue() {
-    this.state.value
 };
 
 LeftDrawer2.propTypes = {

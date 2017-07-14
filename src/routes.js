@@ -1,9 +1,9 @@
 import React from 'react';
 import { Route, IndexRoute } from 'react-router';
-import App from './App';
-import NotFoundPage from './NotFoundPage.js';
-import Dashboard from './DashboardPage';
-import PropertyPage from './PropertyPage';
+import App from './containers/App';
+import NotFoundPage from './containers/NotFoundPage.js';
+import Dashboard from './containers/DashboardPage';
+import PropertyPage from './containers/PropertyPage';
 
 export default (
   <Route>

@@ -36,7 +36,7 @@
   },
   "scripts": {
     "start": "react-scripts  start",
-    "startn": "concurrently \"npm run server\" \"react-scripts  start\" --history-api-fallback",
+    "startn": "concurrently \"npm run src/server\" \"react-scripts  start\" --history-api-fallback",
     "server": "babel-node server.js",
     "client": "babel-node start-client.js",
     "build": "react-scripts build",

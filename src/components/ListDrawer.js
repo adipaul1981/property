@@ -2,16 +2,13 @@ import React from 'react';
 import {List, ListItem} from 'material-ui/List';
 import ActionGrade from 'material-ui/svg-icons/action/grade';
 import ContentInbox from 'material-ui/svg-icons/content/inbox';
-import ContentDrafts from 'material-ui/svg-icons/content/drafts';
 import ContentSend from 'material-ui/svg-icons/content/send';
-import Subheader from 'material-ui/Subheader';
-import Toggle from 'material-ui/Toggle';
 import Home from 'material-ui/svg-icons/action/home';
 import Business from 'material-ui/svg-icons/communication/business';
 import Folder from 'material-ui/svg-icons/file/folder';
-import {cyan500, cyanA200, greenA200,yellowA200} from 'material-ui/styles/colors';
-import DialogAddProperty from './DialogAddProperty';
-import {Router, Route, Link, browserHistory } from 'react-router';
+import { cyanA200, yellowA200} from 'material-ui/styles/colors';
+import DialogAddProperty from '../dialogs/DialogAddProperty';
+import { browserHistory } from 'react-router';
 
 export default class ListDrawer extends React.Component {
 
@@ -31,8 +28,6 @@ export default class ListDrawer extends React.Component {
     };
 
      handleSubmit = (json) => {
-            {console.log("toto")};
-          {console.log(json)};
           this.setState({addDialog: false});
 
           fetch('/NewProspectProperty', {
@@ -45,22 +40,11 @@ export default class ListDrawer extends React.Component {
           })
           .then(function(response) {
 
-                {console.log("tets");}
-                {console.log("tets");}
-//              if(response.status == 201) return response.json();
               if(response.status == 201){
-//                {console.log(response.json());}
                 response.json()
-//                    .then(function(data){window.location.href = '/NewProspectProperty/' + data.MLSNumber;});
                     .then(function(data){
-                        console.log(data.MLSNumber);
-//                        browserHistory.push('/Property/' + data.MLSNumber);
                         browserHistory.push({pathname: '/Property/'+ data.MLSNumber, state: {mlsnumber:  data.MLSNumber}});
                     });
-//                    .then(function(data){console.log(data);});
-//                {console.log(data);}
-//                window.location.href = '/NewProspectProperty/' + ;
-//                    .then(fetch('/NewProspectProperty/'));
               }
               else
                 throw new Error('Something went wrong on api server!' );

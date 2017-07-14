@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import Paper from 'material-ui/Paper';
-import IndValue from './IndValue';
-
+import IndValue from '../components/IndValue';
+import {orange500,white} from 'material-ui/styles/colors';
 
 
 
@@ -12,8 +12,16 @@ export default class FeatureContainer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      property: props.property,
-      addDialog: false
+        property: props.property,
+        addDialog: false,
+        styles: {
+            header: {
+                  fontSize: 24,
+                  color: white,
+                  backgroundColor: orange500,
+                  padding: 10,
+                }
+        }
     };
   }
 
@@ -22,8 +30,8 @@ export default class FeatureContainer extends React.Component {
 
   render() {
             return (
-                <Paper>
-                    <h3>Features</h3>
+                <Paper zDepth={2}>
+                    <div style={this.state.styles.header}>Features</div>
                     <div>
                        <IndValue ind="Number of units" value={this.props.property.NoOneAndHalf + this.props.property.NoTwoAndHalf + this.props.property.NoThreeAndHalf +
                        this.props.property.NoFourAndHalf + this.props.property.NoFiveAndHalf + this.props.property.NoSixAndHalf}/>

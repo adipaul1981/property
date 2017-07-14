@@ -1,19 +1,9 @@
 import React from 'react';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
-import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 
 
-const styles = {
-  radioButton: {
-    marginTop: 16,
-  },
-};
-
-/**
- * Dialog content can be scrollable.
- */
 export default class DialogAddExpense extends React.Component {
     state = {
           expenses: {
@@ -176,5 +166,5 @@ DialogAddExpense.propTypes = {
     handleClose: React.PropTypes.func.isRequired,
     handleSubmit: React.PropTypes.func.isRequired,
     open: React.PropTypes.bool,
-    propertyId:React.PropTypes.int,
+    propertyId:React.PropTypes.number,
 };

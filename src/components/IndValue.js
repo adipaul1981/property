@@ -19,5 +19,8 @@ export default IndValue;
 
 IndValue.propTypes = {
   ind: PropTypes.string,
-  value: PropTypes.string,
+  value: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number
+    ])
 };

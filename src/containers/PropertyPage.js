@@ -1,9 +1,8 @@
 import React from 'react';
-import TextField from 'material-ui/TextField';
-import Paper from 'material-ui/Paper';
-import IndValue from './IndValue';
+import IndValue from '../components/IndValue';
 import FeaturesContainer from './FeaturesContainer';
 import ExpensesContainer from './ExpensesContainer';
+import RevenuesContainer from './RevenuesContainer';
 
 
 
@@ -82,13 +81,18 @@ componentDidMount(){
                     </div>
 
                     <div className="row">
-                    <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6  ">
-                        <FeaturesContainer property={this.state.data}/>
-                    </div>
+                        <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12  ">
+                            <FeaturesContainer property={this.state.data}/>
+                        </div>
 
-                    <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6  ">
-                        <ExpensesContainer property={this.state.data}/>
                     </div>
+                    <div className="row">
+                        <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6  ">
+                            <RevenuesContainer property={this.state.data}/>
+                        </div>
+                        <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6  ">
+                            <ExpensesContainer property={this.state.data}/>
+                        </div>
                     </div>
 
                 </div>

@@ -1,20 +1,9 @@
 import React from 'react';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
-import RaisedButton from 'material-ui/RaisedButton';
-import {RadioButton, RadioButtonGroup} from 'material-ui/RadioButton';
 import TextField from 'material-ui/TextField';
 
 
-const styles = {
-  radioButton: {
-    marginTop: 16,
-  },
-};
-
-/**
- * Dialog content can be scrollable.
- */
 export default class DialogAddProperty extends React.Component {
     state = {
           property: {
@@ -47,7 +36,7 @@ export default class DialogAddProperty extends React.Component {
         const field = e.target.name;
         const property = this.state.property;
         switch(e.target.type){
-                                case 'number': {console.log(e.target.type)
+                                case 'number': {
                                     property[field] = parseFloat(e.target.value);
                                 }
                                 break;
@@ -87,11 +76,13 @@ export default class DialogAddProperty extends React.Component {
 
     const actions = [
       <FlatButton
+      key={21}
         label="Cancel"
         primary={true}
         onTouchTap={this.props.handleClose}
       />,
       <FlatButton
+      key={22}
         label="Submit"
         type='submit'
         primary={true}
@@ -104,12 +95,14 @@ export default class DialogAddProperty extends React.Component {
     return (
       <div>
         <Dialog
+            key={15}
           title="Scrollable Dialog"
           modal={true}
           open={this.props.open}
           autoScrollBodyContent={true}
         >
         <TextField
+          key={1}
           name="MLSNumber"
           hintText="mls"
           floatingLabelText="MLS Number"
@@ -117,6 +110,7 @@ export default class DialogAddProperty extends React.Component {
           onChange={this.updateFormStateProperty}   //todo
         />
         <TextField
+            key={2}
             name="Price"
             hintText="$"
             floatingLabelText="Price"
@@ -125,6 +119,7 @@ export default class DialogAddProperty extends React.Component {
             onChange={this.updateFormStateProperty}
         /><br />
         <TextField
+            key={3}
             name="MunicipalEvaluation"
             hintText="municipal"
             floatingLabelText="Municipal Evaluation"
@@ -133,6 +128,7 @@ export default class DialogAddProperty extends React.Component {
             onChange={this.updateFormStateProperty}
         /><br />
         <TextField
+            key={4}
             name="NoOneAndHalf"
             floatingLabelText="No. 1 1/2"
             floatingLabelFixed={true}
@@ -141,6 +137,7 @@ export default class DialogAddProperty extends React.Component {
             onChange={this.updateFormStateProperty}
         />
         <TextField
+            key={5}
             name="NoTwoAndHalf"
             floatingLabelText="No. 2 1/2"
             floatingLabelFixed={true}
@@ -149,6 +146,7 @@ export default class DialogAddProperty extends React.Component {
             onChange={this.updateFormStateProperty}
         /><br />
         <TextField
+            key={6}
             name="NoThreeAndHalf"
             floatingLabelText="No. 3 1/2"
             floatingLabelFixed={true}
@@ -157,6 +155,7 @@ export default class DialogAddProperty extends React.Component {
             onChange={this.updateFormStateProperty}
         />
         <TextField
+            key={7}
             name="NoFourAndHalf"
             floatingLabelText="No. 4 1/2"
             floatingLabelFixed={true}
@@ -165,6 +164,7 @@ export default class DialogAddProperty extends React.Component {
             onChange={this.updateFormStateProperty}
         /><br />
         <TextField
+            key={14}
             name="NoFiveAndHalf"
             floatingLabelText="No. 5 1/2"
             floatingLabelFixed={true}
@@ -173,6 +173,7 @@ export default class DialogAddProperty extends React.Component {
             onChange={this.updateFormStateProperty}
         />
         <TextField
+            key={8}
             name="NoSixAndHalf"
             floatingLabelText="No. 6 1/2"
             floatingLabelFixed={true}
@@ -181,6 +182,7 @@ export default class DialogAddProperty extends React.Component {
             onChange={this.updateFormStateProperty}
         /><br />
        <TextField
+            key={9}
             name="PropertyNumber"
             hintText="street no."
             floatingLabelText="Number"
@@ -189,6 +191,7 @@ export default class DialogAddProperty extends React.Component {
             onChange={this.updateFormStateAddress}
         />
        <TextField
+            key={10}
             name="Street"
             hintText="street"
             floatingLabelText="Street"
@@ -197,6 +200,7 @@ export default class DialogAddProperty extends React.Component {
             onChange={this.updateFormStateAddress}
         /><br />
       <TextField
+            key={11}
             name="City"
             hintText="city"
             floatingLabelText="City"
@@ -206,18 +210,20 @@ export default class DialogAddProperty extends React.Component {
             onChange={this.updateFormStateAddress}
         />
       <TextField
+            key={12}
             name="Province"
             hintText="province"
             floatingLabelText="Province"
             floatingLabelFixed={true}
             type="text"
-            defaultValue={this.state.property.Address.Province}Country
+            defaultValue={this.state.property.Address.Province}
             onChange={this.updateFormStateAddress}
         /><br />
       <TextField
+            key={13}
             name="Country"
             hintText="country"
-            floatingLabelText={this.state.property.Address.Province}
+            floatingLabelText="Country"
             floatingLabelFixed={true}
             type="text"
             defaultValue={this.state.property.Address.Country}
