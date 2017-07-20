@@ -75,15 +75,15 @@ export default class ExpensesContainer extends React.Component {
     }
 
     render() {
-        const numbers = [1,2,3];
-//        const numbers = this.state.expenses;
-        {console.log("numbers")};
-        {console.log(numbers)};
-        {console.log("Adrian")};
-        {console.log("numbers")};
+        const numbers = Object.entries(this.state.expenses);
+        console.log("Adrian");
+        console.log(this.state.expenses);
+        console.log(Object.values(this.state.expenses));
+        console.log(Object.entries(this.state.expenses));
+        console.log("Adrian");
 
         var test = numbers.map((value, index) => (
-           <div>1</div>
+           <div>{value[1]}</div>
         ));
 
 
