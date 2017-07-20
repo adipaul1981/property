@@ -80,7 +80,11 @@ export default class ExpensesContainer extends React.Component {
         {console.log("numbers")};
         {console.log(numbers)};
         {console.log("Adrian")};
+        {console.log("Adrian")};
         {console.log("numbers")};
+        {console.log("Adrian")};
+        {console.log("Adrian")};
+        {console.log("Adrian")};
 
         var test = numbers.map((value, index) => (
            <div>1</div>
