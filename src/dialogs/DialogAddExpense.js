@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 import TextField from 'material-ui/TextField';
@@ -155,6 +155,7 @@ export default class DialogAddExpense extends React.Component {
         /><br />
          <div style={{ textAlign: 'right', padding: 8, margin: '24px -24px -24px -24px' }}>
             {actions}
+
           </div>
         </Dialog>
       </div>
@@ -166,5 +167,5 @@ DialogAddExpense.propTypes = {
     handleClose: React.PropTypes.func.isRequired,
     handleSubmit: React.PropTypes.func.isRequired,
     open: React.PropTypes.bool,
-    propertyId:React.PropTypes.number,
+    property: PropTypes.object,
 };

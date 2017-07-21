@@ -13,7 +13,7 @@ export default class PropertyPage extends React.Component {
 constructor(){
     super();
     this.state = {
-             data: null
+             property: null
           }
     };
 
@@ -23,7 +23,7 @@ componentDidMount(){
                 .then( (response) => {
                     return response.json() })
                         .then( (json) => {
-                            this.setState({data: json});
+                            this.setState({property: json});
                             console.log(json)
                         });
 }
@@ -31,11 +31,11 @@ componentDidMount(){
 
 
   render() {
-        if (!this.state.data) {
+        if (!this.state.property) {
             return null;
         }
 
-        if (this.state.data) {
+        if (this.state.property) {
             return (
                 <div>
                     <div className="row">
@@ -48,33 +48,33 @@ componentDidMount(){
                             <h3>Address</h3>
                                 <div>
                                     <span>
-                                        {this.state.data.Address.PropertyNumber}
+                                        {this.state.property.Address.PropertyNumber}
                                     </span>
                                     <span>
-                                        ,{this.state.data.Address.Street}
-                                    </span>
-                                </div>
-                                <div>
-                                    <span>
-                                        {this.state.data.Address.City}
-                                    </span>
-                                    <span>
-                                        ,{this.state.data.Address.Province}
+                                        ,{this.state.property.Address.Street}
                                     </span>
                                 </div>
                                 <div>
                                     <span>
-                                        {this.state.data.Address.Country}
+                                        {this.state.property.Address.City}
+                                    </span>
+                                    <span>
+                                        ,{this.state.property.Address.Province}
+                                    </span>
+                                </div>
+                                <div>
+                                    <span>
+                                        {this.state.property.Address.Country}
                                     </span>
                                 </div>
                         </div>
 
                         <div className="col-xs-12 col-sm-6 col-md-4 col-lg-4 end-xs ">
                             <div>
-                                <IndValue ind="MLS Number" value={this.state.data.MLSNumber}/>
+                                <IndValue ind="MLS Number" value={this.state.property.MLSNumber}/>
                             </div>
                             <div>
-                                <IndValue ind="Price" value={this.state.data.Price}/>
+                                <IndValue ind="Price" value={this.state.property.Price}/>
                             </div>
                         </div>
 
@@ -82,17 +82,18 @@ componentDidMount(){
 
                     <div className="row">
                         <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12  ">
-                            <FeaturesContainer property={this.state.data}/>
+                            <FeaturesContainer property={this.state.property}/>
                         </div>
 
                     </div>
                     <div className="row">
                         <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6  ">
-                            <RevenuesContainer property={this.state.data}/>
+                            <ExpensesContainer property={this.state.property}/>
                         </div>
                         <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6  ">
-                            <ExpensesContainer property={this.state.data}/>
+                            <RevenuesContainer property={this.state.property}/>
                         </div>
+
                     </div>
 
                 </div>

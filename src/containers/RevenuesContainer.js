@@ -16,29 +16,28 @@ export default class RevenuesContainer extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-          revenues: null,
+
           styles: {
-                      header: {
-                            fontSize: 24,
-                            color: white,
-                            fontWeight: typography.fontWeightLight,
-                            backgroundColor: orange500,
-                            padding: 10,
-                          }
+              header: {
+                    fontSize: 24,
+                    color: white,
+                    backgroundColor: orange500,
+                    padding: 10,
                   }
+          }
         };
     }
 
 
-    componentDidMount(){
-        fetch('/Property/Revenues/?ID=' + this.props.property.ID)
-                    .then( (response) => {
-                        return response.json() })
-                            .then( (json) => {
-                                this.setState({revenues: json});
-                                console.log(json)
-                            });
-    }
+//    componentDidMount(){
+//        fetch('/Property/Revenues/?ID=' + this.props.property.ID)
+//                    .then( (response) => {
+//                        return response.json() })
+//                            .then( (json) => {
+//                                this.setState({revenues: json});
+//                                console.log(json)
+//                            });
+//    }
 
     handleOpen = () => {
         this.setState({addDialog: true});
@@ -84,30 +83,25 @@ export default class RevenuesContainer extends React.Component {
 
     render() {
 
-        if (!this.state.revenues) {
+        if (!this.props.property.Revenues.length) {
             return (
             <div>
                     <RaisedButton label="Default" onTouchTap={this.handleOpen}/>
-                    <DialogAddRevenues open={this.state.addDialog} handleClose={this.handleClose} handleSubmit={this.handleSubmit} propertyId={this.props.property.ID}/>
+                    <DialogAddRevenues open={this.state.addDialog} handleClose={this.handleClose} handleSubmit={this.handleSubmit} property={this.props.property}/>
             </div>
             );
         }
+        if (this.props.property.Revenues.length) {
         return (
             <Paper zDepth={2}>
                 <div style={this.state.styles.header}>Revenues</div>
+                 {this.props.property.Revenues.map((revenue, index) =>
+                        <IndValue ind={revenue.RevenuesType} value={revenue.Value}/>
+                 )}
                 <div>
-                    <IndValue ind="Residential" value={this.state.revenues.Residential}/>
-                    <IndValue ind="Commercial" value={this.state.revenues.Commercial}/>
-                    <IndValue ind="Parking/Garages" value={this.state.revenues.Parking_Garages}/>
-                    <IndValue ind="Others" value={this.state.revenues.Others}/>
-                    <div>Vacancy Rate:</div>
-                    <IndValue ind="Residential" value={this.state.revenues.VacancyRateResidential}/>
-                    <IndValue ind="Commercial" value={this.state.revenues.VacancyRateCommercial}/>
-                    <IndValue ind="Parking/Garages" value={this.state.revenues.VacancyRateParking}/>
-                    <IndValue ind="Others" value={this.state.revenues.VacancyRateOthers}/>
-               </div>
+                </div>
             </Paper>
-        );
+        )};
     }
 }
 RevenuesContainer.propTypes = {

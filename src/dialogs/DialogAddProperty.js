@@ -23,6 +23,8 @@ export default class DialogAddProperty extends React.Component {
                   Province: 'Quebec',
                   Country: 'Canada',
               },
+              Expenses: [],
+              Revenues: [],
           },
           open: this.props.open,
     };
