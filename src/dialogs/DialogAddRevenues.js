@@ -12,7 +12,9 @@ export default class DialogAddRevenue extends React.Component {
 
     saveRevenue = (e) => {
         e.preventDefault();
-        this.props.property
+        console.log("test");
+        console.log(this.state.property);
+        console.log("test");
 //        this.props.handleSubmit(this.props.property)
     };
 
@@ -33,7 +35,7 @@ export default class DialogAddRevenue extends React.Component {
                                 }
                                 break;
                             };
-//        this.setState({property.Revenues: revenues});
+        this.setState({property: this.state.property});
     };
 
   render() {

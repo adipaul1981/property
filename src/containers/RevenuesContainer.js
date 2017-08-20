@@ -51,7 +51,7 @@ export default class RevenuesContainer extends React.Component {
         this.setState({addDialog: false});
 
         fetch('/Property/Revenues/',  {
-            method: 'POST',
+            method: 'PUT',
             headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json',
