@@ -12,10 +12,7 @@ export default class DialogAddRevenue extends React.Component {
 
     saveRevenue = (e) => {
         e.preventDefault();
-        console.log("test");
-        console.log(this.state.property);
-        console.log("test");
-//        this.props.handleSubmit(this.props.property)
+        this.props.handleSubmit(this.props.property)
     };
 
     updateFormStateRevenue = (e) => {
@@ -26,7 +23,8 @@ export default class DialogAddRevenue extends React.Component {
         console.log(this.state.property)
         switch(e.target.type){
                                 case 'number': {
-                                    revenues[field] = parseFloat(e.target.value);
+                                    revenues['RevenuesType'] = field,
+                                    revenues['RevenuesType'] = field;
                                 }
                                 break;
 

@@ -49,14 +49,14 @@ export default class RevenuesContainer extends React.Component {
 
     handleSubmit = (json) => {
         this.setState({addDialog: false});
-
-        fetch('/Property/Revenues/',  {
-            method: 'PUT',
+        {console.log(json.Revenues);}
+        fetch('/Property/Revenues/'+json.ID,  {
+            method: 'POST',
             headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json',
             },
-            body: JSON.stringify(json)
+            body: JSON.stringify(json.Revenues)
         })
            .then( (response) => {
                 return response.json() })
