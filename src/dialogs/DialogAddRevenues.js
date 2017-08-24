@@ -12,28 +12,50 @@ export default class DialogAddRevenue extends React.Component {
 
     saveRevenue = (e) => {
         e.preventDefault();
-        this.props.handleSubmit(this.props.property)
+        this.props.handleSubmit(this.state.property)
     };
 
+
+
     updateFormStateRevenue = (e) => {
-        console.log(e.target)
-        const field = e.target.name;
-        const revenues = this.state.property.Revenues;
+//        console.log(this.state.property)
+//        console.log(e.target)
+//        const field = e.target.name;
+
+//        var revenues = this.props.property.Revenues;
+        var revenues = {};
+        console.log("test")
         console.log(revenues)
+        console.log("test")
         console.log(this.state.property)
+        console.log("adrian");
         switch(e.target.type){
                                 case 'number': {
-                                    revenues['RevenuesType'] = field,
-                                    revenues['RevenuesType'] = field;
+
+                                        revenues['RevenuesType'] = e.target.name
+                                        revenues['Value'] = parseInt(e.target.value)
+                                        revenues['VacancyRate'] = 0
+
                                 }
                                 break;
 
                                 default: {
-                                    revenues[field] = e.target.value;
+//                                    revenues[field] = e.target.value;
                                 }
                                 break;
                             };
-        this.setState({property: this.state.property});
+//        this.setState({property: [...this.state.property, revenues]});
+//        this.setState(property: {...this.state.property, revenues:[...this.state.property.Revenues, ...revenues]})
+//        this.setState({property: [...this.state.property], revenues:[...this.state.property.Revenues, ...revenues]});
+        var test = this.state.property;
+        console.log("toto");
+//        var colors = ['red', 'green', 'blue'];
+//        console.log(colors);
+//        var refColors = [...colors, colors];
+//        console.log(refColors);
+        console.log(test);
+//        console.log(this.state.property);
+        console.log("totot");
     };
 
   render() {
@@ -60,7 +82,7 @@ export default class DialogAddRevenue extends React.Component {
 
     return (
       <div>
-        <Dialog
+        <Dialog onSubmit={this.handleSubmit}
           title="Scrollable Dialog"
           modal={true}
           open={this.props.open}
