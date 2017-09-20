@@ -45,15 +45,25 @@ export default class DialogAddRevenue extends React.Component {
                                 break;
                             };
 //        this.setState({property: [...this.state.property, revenues]});
-//        this.setState(property: {...this.state.property, revenues:[...this.state.property.Revenues, ...revenues]})
-//        this.setState({property: [...this.state.property], revenues:[...this.state.property.Revenues, ...revenues]});
-        var test = this.state.property;
+//        this.setState(property: {...this.state.property, revenues:[...this.state.property.revenues, ...revenues]})
+ console.log("console");
+ var test = {...this.state.property.revenues,revenues}
+  console.log(test);
+  var test2 = {...this.state.property.revenues,...test}
+  console.log(test2);
+  this.setState(...this.state.property,test2);
+  console.log(this.state.property)
+//  console.log({...this.state.property,...revenues});
+   console.log("console");
+//        this.setState(property:{...this.state.property, ...revenues});
+//        var test = this.state.property;
         console.log("toto");
 //        var colors = ['red', 'green', 'blue'];
 //        console.log(colors);
 //        var refColors = [...colors, colors];
 //        console.log(refColors);
-        console.log(test);
+        console.log(revenues);
+        console.log(this.state.property);
 //        console.log(this.state.property);
         console.log("totot");
     };

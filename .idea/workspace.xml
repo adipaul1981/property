@@ -71,10 +71,10 @@
       <file leaf-file-name="DialogAddRevenues.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/dialogs/DialogAddRevenues.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1987">
-              <caret line="119" column="50" lean-forward="true" selection-start-line="119" selection-start-column="4" selection-end-line="119" selection-end-column="50" />
+            <state relative-caret-position="374">
+              <caret line="70" column="12" lean-forward="true" selection-start-line="70" selection-start-column="12" selection-end-line="70" selection-end-column="12" />
               <folding>
-                <marker date="1505877334521" expanded="true" signature="932:1167" ph="..." />
+                <marker date="1506048971834" expanded="true" signature="932:1167" ph="..." />
               </folding>
             </state>
           </provider>
@@ -991,10 +991,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/dialogs/DialogAddRevenues.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1987">
-          <caret line="119" column="50" lean-forward="true" selection-start-line="119" selection-start-column="4" selection-end-line="119" selection-end-column="50" />
+        <state relative-caret-position="374">
+          <caret line="70" column="12" lean-forward="true" selection-start-line="70" selection-start-column="12" selection-end-line="70" selection-end-column="12" />
           <folding>
-            <marker date="1505877334521" expanded="true" signature="932:1167" ph="..." />
+            <marker date="1506048971834" expanded="true" signature="932:1167" ph="..." />
           </folding>
         </state>
       </provider>
