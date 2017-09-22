@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="85b53c6a-3b4c-45e5-ba99-1335bb09aed8" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/dialogs/DialogAddRevenues.js" afterPath="$PROJECT_DIR$/src/dialogs/DialogAddRevenues.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -71,11 +70,9 @@
       <file leaf-file-name="DialogAddRevenues.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/dialogs/DialogAddRevenues.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="70" column="12" lean-forward="true" selection-start-line="70" selection-start-column="12" selection-end-line="70" selection-end-column="12" />
-              <folding>
-                <marker date="1506048971834" expanded="true" signature="932:1167" ph="..." />
-              </folding>
+            <state relative-caret-position="221">
+              <caret line="31" column="59" lean-forward="true" selection-start-line="31" selection-start-column="59" selection-end-line="32" selection-end-column="73" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -991,11 +988,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/dialogs/DialogAddRevenues.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="70" column="12" lean-forward="true" selection-start-line="70" selection-start-column="12" selection-end-line="70" selection-end-column="12" />
-          <folding>
-            <marker date="1506048971834" expanded="true" signature="932:1167" ph="..." />
-          </folding>
+        <state relative-caret-position="221">
+          <caret line="31" column="59" lean-forward="true" selection-start-line="31" selection-start-column="59" selection-end-line="32" selection-end-column="73" />
+          <folding />
         </state>
       </provider>
     </entry>

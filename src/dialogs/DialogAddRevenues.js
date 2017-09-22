@@ -23,49 +23,34 @@ export default class DialogAddRevenue extends React.Component {
 //        const field = e.target.name;
 
 //        var revenues = this.props.property.Revenues;
-        var revenues = {};
-        console.log("test")
-        console.log(revenues)
-        console.log("test")
-        console.log(this.state.property)
-        console.log("adrian");
+        var revenue = {};
         switch(e.target.type){
                                 case 'number': {
+                                            revenue = {'RevenuesType':e.target.name,'Value':parseInt(e.target.value),'VacancyRate':0}
 
-                                        revenues['RevenuesType'] = e.target.name
-                                        revenues['Value'] = parseInt(e.target.value)
-                                        revenues['VacancyRate'] = 0
-
+                                            this.setState({
+                                                property: {
+                                                  ...this.state.property,
+                                                  Revenues: [
+                                                    {...this.state.property.Revenues,
+                                                    revenue}
+                                                  ]
+                                                }
+                                            });
+                                            console.log("console");
+                                            console.log(revenue);
+                                            console.log(this.state.property)
+                                            console.log("console");
                                 }
                                 break;
 
                                 default: {
-//                                    revenues[field] = e.target.value;
                                 }
                                 break;
                             };
-//        this.setState({property: [...this.state.property, revenues]});
-//        this.setState(property: {...this.state.property, revenues:[...this.state.property.revenues, ...revenues]})
- console.log("console");
- var test = {...this.state.property.revenues,revenues}
-  console.log(test);
-  var test2 = {...this.state.property.revenues,...test}
-  console.log(test2);
-  this.setState(...this.state.property,test2);
-  console.log(this.state.property)
-//  console.log({...this.state.property,...revenues});
-   console.log("console");
-//        this.setState(property:{...this.state.property, ...revenues});
-//        var test = this.state.property;
-        console.log("toto");
-//        var colors = ['red', 'green', 'blue'];
-//        console.log(colors);
-//        var refColors = [...colors, colors];
-//        console.log(refColors);
-        console.log(revenues);
-        console.log(this.state.property);
-//        console.log(this.state.property);
-        console.log("totot");
+
+
+
     };
 
   render() {
