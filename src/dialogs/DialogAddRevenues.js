@@ -5,42 +5,54 @@ import TextField from 'material-ui/TextField';
 
 
 export default class DialogAddRevenue extends React.Component {
-    state = {
-          property: this.props.property,
-          open: this.props.open,
+  constructor(props) {
+    super(props);
+    this.state = {
+        property: this.props.property,
+        open: this.props.open,
+        rev:[]
     };
+
+
+    this.handleChange = this.handleChange.bind(this);
+    this.saveRevenue = this.saveRevenue.bind(this);
+    this.updateFormStateRevenue = this.updateFormStateRevenue.bind(this);
+  }
+
+  handleChange(event) {
+    this.setState({value: event.target.value});
+  }
 
     saveRevenue = (e) => {
         e.preventDefault();
-        this.props.handleSubmit(this.state.property)
+        console.log("save");
+        var a3 = Object.keys(a2).map(function (k) { return a2[k];}) //TODO
+        console.log(this.state.property);
+        console.log("save");
+//        this.props.handleSubmit(this.state.property)
     };
 
-
-
     updateFormStateRevenue = (e) => {
-//        console.log(this.state.property)
-//        console.log(e.target)
-//        const field = e.target.name;
+    var revenue = {'RevenuesType':e.target.name,'Value':parseInt(e.target.value),'VacancyRate':0};
 
-//        var revenues = this.props.property.Revenues;
-        var revenue = {};
         switch(e.target.type){
                                 case 'number': {
-                                            revenue = {'RevenuesType':e.target.name,'Value':parseInt(e.target.value),'VacancyRate':0}
+                                            var revenue = {'RevenuesType':e.target.name,'Value':parseInt(e.target.value),'VacancyRate':0};
+//                                            this.setState({
+//                                                property: {
+//                                                  ...this.state.property,
+//                                                  Revenues:[
+//                                                    {...this.state.property.Revenues,
+//                                                    ...revenue}
+//                                                    ]
+//                                                }
+//                                            });
+                                            let rev = this.state.rev;
+                                            let name = e.target.name;
+                                            let value = e.target.value;
+                                            rev[name] = {'RevenuesType':e.target.name,'Value':parseInt(e.target.value),'VacancyRate':0};
 
-                                            this.setState({
-                                                property: {
-                                                  ...this.state.property,
-                                                  Revenues: [
-                                                    {...this.state.property.Revenues,
-                                                    revenue}
-                                                  ]
-                                                }
-                                            });
-                                            console.log("console");
-                                            console.log(revenue);
-                                            console.log(this.state.property)
-                                            console.log("console");
+                                            this.setState({rev})
                                 }
                                 break;
 
@@ -53,28 +65,31 @@ export default class DialogAddRevenue extends React.Component {
 
     };
 
+//  handleSubmit(event) {
+//    alert('A name was submitted: ' + this.state.value);
+//    event.preventDefault();
+//  }
+
   render() {
 
-      if(!this.props.open) {
-        return null;
-      }
+        if(!this.props.open) {
+          return null;
+        }
 
-    const actions = [
-      <FlatButton
-        label="Cancel"
-        primary={true}
-        onTouchTap={this.props.handleClose}
-      />,
-      <FlatButton
-        label="Submit"
-        type='submit'
-        primary={true}
-        onTouchTap={this.saveRevenue}
-        keyboardFocused={true}
-      />,
-    ];
-
-
+      const actions = [
+        <FlatButton
+          label="Cancel"
+          primary={true}
+          onTouchTap={this.props.handleClose}
+        />,
+        <FlatButton
+          label="Submit"
+          type='submit'
+          primary={true}
+          onTouchTap={this.saveRevenue}
+          keyboardFocused={true}
+        />,
+      ];
     return (
       <div>
         <Dialog onSubmit={this.handleSubmit}
@@ -110,63 +125,16 @@ export default class DialogAddRevenue extends React.Component {
   }
 }
 
-DialogAddRevenue .propTypes = {
+DialogAddRevenue.propTypes = {
     handleClose: React.PropTypes.func.isRequired,
     handleSubmit: React.PropTypes.func.isRequired,
     open: React.PropTypes.bool,
     property: PropTypes.object,
 };
-//        <TextField
-//            name="Parking_Garages"
-//            hintText="$"
-//            floatingLabelText="Parking/Garages"
-//            floatingLabelFixed={true}
-//            type="number"
-//            defaultValue={this.state.revenues.Parking_Garages}
-//            onChange={this.updateFormStateRevenue}
-//        /><br />
-//        <TextField
-//            name="Others"
-//            hintText="$"
-//            floatingLabelText="Others"
-//            floatingLabelFixed={true}
-//            type="number"
-//            defaultValue={this.state.revenues.Others}
-//            onChange={this.updateFormStateRevenue}
-//        />
-//        <TextField
-//            name="VacancyRateResidential"
-//            hintText="%"
-//            floatingLabelText="Vacancy Rate Residential"
-//            floatingLabelFixed={true}
-//            type="number"
-//            defaultValue={this.state.revenues.VacancyRateResidential}
-//            onChange={this.updateFormStateRevenue}
-//        /><br />
-//        <TextField
-//            name="VacancyRateCommercial"
-//            hintText="%"
-//            floatingLabelText="Vacancy Rate Commercial"
-//            floatingLabelFixed={true}
-//            type="number"
-//            defaultValue={this.state.revenues.VacancyRateCommercial}
-//            onChange={this.updateFormStateRevenue}
-//        />
-//        <TextField
-//            name="VacancyRateParking"
-//            hintText="%"
-//            floatingLabelText="Vacancy Rate Parking"
-//            floatingLabelFixed={true}
-//            type="number"
-//            defaultValue={this.state.revenues.VacancyRateParking}
-//            onChange={this.updateFormStateRevenue}
-//        /><br />
-//        <TextField
-//            name="VacancyRateOthers"
-//            hintText="%"
-//            floatingLabelText="Vacancy Rate Others"
-//            floatingLabelFixed={true}
-//            type="number"
-//            defaultValue={this.state.revenues.VacancyRateOthers}
-//            onChange={this.updateFormStateRevenue}
-//        /><br />
+
+
+//
+//export default class DialogAddRevenue extends React.Component {
+
+
+
